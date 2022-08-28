@@ -1,0 +1,33 @@
+@font-face {
+    font-family: 'Courgette';
+    src: url('/public/font/Courgette-Regular.eot');
+    src: url('/public/font/Courgette-Regular.eot?#iefix') format('embedded-opentype'),
+        url('/public/font/Courgette-Regular.woff') format('woff'),
+        url('/public/font/Courgette-Regular.woff2') format('woff2'),
+        url('/public/font/Courgette-Regular.ttf') format('truetype'),
+        url('/public/font/Courgette-Regular.svg#Courgette-Regular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Righteous';
+    src: url('/public/font/Righteous-Regular.eot');
+    src: url('/public/font/Righteous-Regular.eot?#iefix') format('embedded-opentype'),
+        url('/public/font/Righteous-Regular.woff2') format('woff2'),
+        url('/public/font/Righteous-Regular.woff') format('woff'),
+        url('/public/font/Righteous-Regular.ttf') format('truetype'),
+        url('/public/font/Righteous-Regular.svg#Righteous-Regular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+h1,h2,h3,h4{
+    font-family: 'Righteous';
+    font-weight: 400;
+}
+p,button,a{
+    font-family: 'Courgette';
+    font-weight: 400;
+}
