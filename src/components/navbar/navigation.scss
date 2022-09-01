@@ -1,0 +1,45 @@
+@use '../../Sass/util/'as u;
+
+.navbar{
+    .nav_list{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    position: fixed;
+    width: 100%;
+    padding-block: .5rem;
+    &_header{
+        margin-left: 1rem;
+        font-size: 1.5rem;
+    }
+    
+    &_nav{
+        padding-right: 2rem;
+        display: flex;
+        gap: 4.5rem;
+        flex-direction: row;
+        &_logo{
+            font-size: 1.5rem;
+            display: none;
+            color: black;
+            cursor: pointer;
+            @include u.breakpoint(small){
+                display: flex;
+            }
+        }
+    }
+    &_hamburger{
+        margin-right:1rem;
+        &_line{
+            width: 20px;
+            height: 2px;
+            background-color: black;
+            margin: .2rem;
+        }
+        @include u.breakpoint(small){
+            display: none;
+        }
+    }
+    
+}

@@ -27,7 +27,22 @@ h1,h2,h3,h4{
     font-family: 'Righteous';
     font-weight: 400;
 }
-p,button,a{
+p,button,a,ul,input{
     font-family: 'Courgette';
     font-weight: 400;
 }
+button{
+    font-family: 'Righteous';
+    font-weight: 400;
+}
+input{
+    font-size: 1rem;
+}
+// .font-righteous{
+//     font-family: 'Righteous';
+//     font-weight: 400;
+// }
+// .font-courgette{
+//     font-family: 'Courgette';
+//     font-weight: 400;
+// }
