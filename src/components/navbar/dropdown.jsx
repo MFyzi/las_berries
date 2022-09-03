@@ -4,11 +4,11 @@ import { motion } from 'framer-motion'
 import'./dropdown.css';
 
 function Dropdown() {
+    
   return (
     <nav className='dropdown_nav'>
-        <ul className="dropdown_nav_list">
+        <motion.ul className="dropdown_nav_list">
             <motion.li 
-            whileHover={{scale:1.1}}
             className="dropdown_nav_list_item">
             <NavLink to='/'>
                 Home
@@ -24,7 +24,7 @@ function Dropdown() {
                 Cart
               </NavLink>
             </li>
-        </ul>
+        </motion.ul>
     </nav>
   )
 }

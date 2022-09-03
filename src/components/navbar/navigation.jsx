@@ -35,7 +35,7 @@ function Navigation() {
         onClick={()=>setIsShow(!isShow)} 
         className="navbar_hamburger">
           <motion.div 
-          animate={isShow ? { rotate: 32, originX:0} : { rotate: 0, originX:0} }
+          animate={isShow ? { rotate: 40, originX:0} : { rotate: 0, originX:0} }
           transition={{duration:.5}}
           className="navbar_hamburger_line ">
           </motion.div>
@@ -47,7 +47,7 @@ function Navigation() {
           </motion.div>
 
           <motion.div 
-          animate={isShow ? {rotate: -32, originX:0} :{ rotate: 0, originX:0} } 
+          animate={isShow ? {rotate: -40, originX:0} :{ rotate: 0, originX:0} } 
           transition={{duration:.5}}
           className="navbar_hamburger_line ">
           </motion.div>

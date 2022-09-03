@@ -1,0 +1,49 @@
+.home__card{
+    position: relative;
+    top: 40%;
+    height: 320px;
+    background-color: aqua;
+    border-radius: 25px;
+    background: linear-gradient(180deg, #F2D6A7 0%, #AD7B8D 100%);
+    // opacity: 0.65;
+    border-width: 4px 3px 1px 1px;
+    border-style: solid;
+    border-color: #FFFFFF;
+    
+    &__banner{
+        position: relative;
+        margin-top: 2rem;
+        margin-inline:10px;
+        height: 60%;
+        width: 280px;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        h2{
+            padding-inline: .2rem;
+            color: white;
+            position:absolute;
+            border-radius: 10px;
+            bottom:10%;
+            left: 02%;
+            background-color: rgba(0, 0, 0, 0.7);
+            cursor: pointer;
+            
+        }
+    }
+    &__buy{
+        display: flex;
+        align-items: center;
+        padding-inline: .5rem;
+        justify-content: space-between;
+    }
+    &_buy-btn{
+        padding-right: .5rem;
+        padding-left: 1rem;
+        font-size: 1.5rem;
+        border: none;
+        margin-top: 1rem;
+        background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0px 0px 4px 4px rgba(0, 0, 0, 0.25);
+    }
+}
