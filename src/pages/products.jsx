@@ -14,7 +14,6 @@ function Products() {
         </div>
       </div>
       <Outlet />
-
     </div>
   );
 }

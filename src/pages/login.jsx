@@ -11,7 +11,7 @@ function Login() {
     const handleSubmit = (e) =>{
         e.preventDefault()
         dispatch(authActions.login())
-        navigate('/')
+        navigate('/products')
     }
   return (
     <div className='login__page'>

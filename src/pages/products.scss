@@ -1,5 +1,6 @@
 .products__container{
     overflow-y: auto;
+    height: 100%;
     background-color: linear-gradient(180deg, #FCF7F0 0%, rgba(255, 253, 250, 0.1) 100%);
     &__nav{
         background-color: rgb(255, 255, 255);
@@ -40,5 +41,8 @@
             }
         }
 
+    }
+    .home__card{
+        margin-top:2rem;
     }
 }

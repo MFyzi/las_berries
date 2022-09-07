@@ -1,21 +1,13 @@
 .home_container{
-    height: 100%;
-    padding-top: 4rem;
-    width: 100vw;
-    gap:100px;
-    // background-image: url(../images/lasberry.jpg);
-    // background-repeat: no-repeat;
     background-size: cover;
-    // background-position: center;
-    // background: linear-gradient(180deg, #FCF7F0 0%, rgba(255, 253, 250, 0.1) 100%);
     .home_card_container{
+        width: max-content;
+        min-width: 100%;
         position: absolute;
         overflow-x: auto;
         top: 50%;
-        width: 100vw;
-        gap: 2rem;
+        gap: 40px;
         display: flex;
-        flex-direction: row;
-        align-items: center;
+        
     }
 }
