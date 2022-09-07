@@ -2,7 +2,7 @@
     position: relative;
     top: 40%;
     height: 320px;
-    width: fit-content;
+    width: 280px;
     background-color: aqua;
     border-radius: 25px;
     background: linear-gradient(180deg, #F2D6A7 0%, #AD7B8D 100%);
@@ -12,11 +12,12 @@
     border-color: #FFFFFF;
     
     &__banner{
+        border-radius: 20px;
         position: relative;
         margin-top: 2rem;
-        margin-inline:10px;
+        margin-inline:auto auto;
         height: 60%;
-        width: 280px;
+        width: 240px;
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center;
