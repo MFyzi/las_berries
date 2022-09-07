@@ -1,29 +1,44 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion'
 import'./dropdown.css';
-
+import { useSelector,useDispatch } from "react-redux";
+import { authActions } from '../../store/auth-slice';
+import { navAction } from '../../store/nav-slice';
 function Dropdown() {
-    
+    const isLoggedIn = useSelector(state=>state.auth.isLoggedIn)
+    const dispatch=useDispatch() 
+    const handleNav = () =>{
+      dispatch(navAction.navToggle())
+    }
+    const handleLoginLink =()=>{
+      dispatch(navAction.navToggle())
+      dispatch(authActions.isInPage())
+    }
   return (
     <nav className='dropdown_nav'>
-        <motion.ul className="dropdown_nav_list">
+        <motion.ul onClick={handleNav} className="dropdown_nav_list">
             <motion.li 
             className="dropdown_nav_list_item">
-            <NavLink to='/'>
+            <Link to='/'>
                 Home
-            </NavLink>
+            </Link>
             </motion.li>
-            <li className="dropdown_nav_list_item">
-              <NavLink to='cakes'>
+            <li onClick={handleNav}className="dropdown_nav_list_item">
+              <Link  onClick={handleNav} to='products/cakes'>
                 Cake
-              </NavLink>
+              </Link>
             </li>
-            <li className="dropdown_nav_list_item">
-              <NavLink to='/cart'>
+            {isLoggedIn && <li oclassName="dropdown_nav_list_item">
+              <Link  onClick={handleNav} to='cart'>
                 Cart
-              </NavLink>
-            </li>
+              </Link>
+            </li>}
+            {!isLoggedIn&&<li className="dropdown_nav_list_item">
+              <Link to='login' onClick={handleLoginLink} className='login-btn'>
+                login
+              </Link>
+            </li>}
         </motion.ul>
     </nav>
   )

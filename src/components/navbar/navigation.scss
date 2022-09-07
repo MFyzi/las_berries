@@ -20,6 +20,18 @@
         display: flex;
         gap: 4.5rem;
         flex-direction: row;
+        .nav-btn{
+            margin-bottom: .5rem;
+        }
+        .login-btn{
+            font-size: 1.5rem;
+            text-decoration: none;
+            background: aquamarine;
+            padding-inline: .5rem;
+            margin: auto auto;
+            padding-block: .2rem;
+            border-radius: 10px;
+        }
         &_logo{
             font-size: 2.3rem;
             display: none;

@@ -1,0 +1,40 @@
+.products__container{
+    overflow: auto;
+    background-color: linear-gradient(180deg, #FCF7F0 0%, rgba(255, 253, 250, 0.1) 100%);
+    &__nav{
+        padding-top: 10rem;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        padding-inline: 25%;
+
+        &-search{
+            margin-inline: auto;
+            background: rgba(217, 217, 217, 0.61);
+            padding-inline: 1rem;
+            padding-block: .2rem;
+            border: 1px solid #000000;
+            border-radius: 44px;
+            width: 40vw;
+        }
+        &-links{
+            display: flex;
+            justify-content: space-around;
+            a{
+                margin-block: 2rem;
+                background: linear-gradient(180deg, #F2D6A7 0%, #AD7B8D 100%);
+                mix-blend-mode: normal;
+                opacity: 0.65;
+                border-width: 4px 3px 1px 1px;
+                border-style: solid;
+                border-color: #FFFFFF;
+                border-radius: 46px;
+                text-decoration: none;
+                width: 90px;
+                text-align: center;
+    
+            }
+        }
+
+    }
+}

@@ -1,14 +1,17 @@
 import React from 'react'
 import './login.css'
 import { motion } from 'framer-motion'
-import { useDispatch } from 'react-redux'
+import { useDispatch } from "react-redux";
 import { authActions } from '../store/auth-slice'
+import { useNavigate } from 'react-router-dom';
 
 function Login() {
+    const navigate = useNavigate()
     const dispatch=useDispatch()
     const handleSubmit = (e) =>{
         e.preventDefault()
         dispatch(authActions.login())
+        navigate('/')
     }
   return (
     <div className='login__page'>

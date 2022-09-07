@@ -3,20 +3,18 @@ import Cards from '../components/home-cards/cards'
 import useFireFetch from '../components/hooks/useFireFetch'
 import './cakes.css'
 
-function Cakes() {
-  const {cakeData}=useFireFetch('cake')
+function CupCakes() {
+ const{cakeData}= useFireFetch('cupcakes')
   return (
-
-    <div className='products-cake__container'>
+    <div className='products-cake__container'>   
       {cakeData.map((item)=>
-      <Cards
+      <Cards 
       id={item.id}
       name={item.name}
-      url={item.url}/>
-      )}
-
+      url={item.url}
+      />)}
     </div>
   )
 }
 
-export default Cakes
+export default CupCakes
