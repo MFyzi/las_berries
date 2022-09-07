@@ -1,12 +1,14 @@
 .products__container{
-    overflow: auto;
+    overflow-y: auto;
     background-color: linear-gradient(180deg, #FCF7F0 0%, rgba(255, 253, 250, 0.1) 100%);
     &__nav{
-        padding-top: 10rem;
+        background-color: rgb(255, 255, 255);
+        z-index: -1;
+        padding-top: 5rem;
         position: relative;
         display: flex;
         flex-direction: column;
-        padding-inline: 25%;
+        width: 100%;
 
         &-search{
             margin-inline: auto;
@@ -16,6 +18,8 @@
             border: 1px solid #000000;
             border-radius: 44px;
             width: 40vw;
+            min-width: 280px;
+            margin-inline: auto auto;
         }
         &-links{
             display: flex;
