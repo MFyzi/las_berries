@@ -1,13 +1,16 @@
 .home_container{
     background-size: cover;
     .home_card_container{
-        width: max-content;
-        min-width: 100%;
+        width: 100vw;
         position: absolute;
         overflow-x: auto;
         top: 50%;
         gap: 40px;
         display: flex;
+        flex-wrap: nowrap;
+        .home__card{
+            min-width: 250px;
+        }
         
     }
 }

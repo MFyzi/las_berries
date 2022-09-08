@@ -1,1 +1,1 @@
-.home_container{background-size:cover}.home_container .home_card_container{width:-webkit-max-content;width:-moz-max-content;width:max-content;min-width:100%;position:absolute;overflow-x:auto;top:50%;gap:40px;display:flex}/*# sourceMappingURL=home.css.map */
+.home_container{background-size:cover}.home_container .home_card_container{width:100vw;position:absolute;overflow-x:auto;top:50%;gap:40px;display:flex;flex-wrap:nowrap}.home_container .home_card_container .home__card{min-width:250px}/*# sourceMappingURL=home.css.map */
