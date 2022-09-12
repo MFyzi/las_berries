@@ -1,8 +1,8 @@
 import React from 'react'
-import { GiCakeSlice } from "react-icons/gi";
+import { SiCakephp } from "react-icons/si";
 import { TbSmartHome } from "react-icons/tb";
 import { BiCartAlt } from "react-icons/bi";
-import { Link } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
 import './navigation.css'
 import { motion } from 'framer-motion'
 import Dropdown from './dropdown';
@@ -34,8 +34,8 @@ function Navigation() {
               </Link>
               </li>
               <li className='navbar_nav_logo'>
-                <Link to='products/cakes'>
-                  <GiCakeSlice />
+                <Link to='products/cakes' >
+                <SiCakephp/>
                 </Link>
               </li>
               {isLoggedIn&&<li className='navbar_nav_logo'>
@@ -49,6 +49,7 @@ function Navigation() {
                 </Link>
               </li>}
           </ul>
+          <Outlet/>
 
         <div 
         onClick={handleHamburger} 

@@ -1,6 +1,7 @@
 @use '../../Sass/util/'as u;
 
 .navbar{
+    z-index: 2;
     .nav_list{
         margin-top: .5rem;
         display: flex;
@@ -11,6 +12,7 @@
     width: 100%;
     padding-block: .5rem;
     &_header{
+        color: u.$rose;
         margin-left: 1rem;
         font-size: 2rem;
     }
@@ -24,15 +26,19 @@
             margin-bottom: .5rem;
         }
         .login-btn{
-            font-size: 1.5rem;
+            color: white;
+            font-size: 1.3rem;
             text-decoration: none;
-            background: aquamarine;
-            padding-inline: .5rem;
+            background:u.$rose;
+            padding-inline: .8rem;
             margin: auto auto;
-            padding-block: .2rem;
-            border-radius: 10px;
+            padding-block: .3rem;
+            border-radius: 15px;
         }
         &_logo{
+            a{
+                color: u.$rose;
+            }
             font-size: 2.3rem;
             display: none;
             color: black;

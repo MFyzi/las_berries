@@ -1,39 +1,44 @@
+@use '../Sass/util/'as u;
 .products__container{
     overflow-y: auto;
-    height: 100%;
+    // height: 100%;
     background-color: linear-gradient(180deg, #FCF7F0 0%, rgba(255, 253, 250, 0.1) 100%);
     &__nav{
         background-color: rgb(255, 255, 255);
-        z-index: -1;
         padding-top: 5rem;
         position: relative;
         display: flex;
         flex-direction: column;
+        
         width: 100%;
 
         &-search{
+            outline: none;
             margin-inline: auto;
             background: rgba(217, 217, 217, 0.61);
             padding-inline: 1rem;
             padding-block: .2rem;
-            border: 1px solid #000000;
-            border-radius: 44px;
+            border: none;
+            // border: 1px solid u.$rose;
+            border-radius: 10px;
             width: 40vw;
             min-width: 280px;
             margin-inline: auto auto;
         }
-        &-links{
+        &-links ul{
+            padding-top: 2rem;
+            .nav-links{
+                cursor: pointer;
+            }
             display: flex;
             justify-content: space-around;
+            width: 50%;
+            margin: auto auto auto auto;
             a{
+                // cursor: pointer;
+                color:u.$rose ;
+                font-size: 1.5rem;
                 margin-block: 2rem;
-                background: linear-gradient(180deg, #F2D6A7 0%, #AD7B8D 100%);
-                mix-blend-mode: normal;
-                opacity: 0.65;
-                border-width: 4px 3px 1px 1px;
-                border-style: solid;
-                border-color: #FFFFFF;
-                border-radius: 46px;
                 text-decoration: none;
                 width: 90px;
                 text-align: center;

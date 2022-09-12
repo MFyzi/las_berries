@@ -1,0 +1,11 @@
+@use '../Sass/util/' as u;
+
+footer{
+    background:u.$rose ;
+    width: 100vw;
+    bottom: 0;
+    padding-block: .2rem;
+    display: flex;
+    font-weight:600 ;
+    justify-content: center;
+}
