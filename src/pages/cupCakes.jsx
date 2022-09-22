@@ -12,6 +12,7 @@ function CupCakes() {
       id={item.id}
       name={item.name}
       url={item.url}
+      price = {item.price}
       />)}
     </div>
   )

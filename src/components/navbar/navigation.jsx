@@ -10,6 +10,9 @@ import Dropdown from './dropdown';
 import { useSelector,useDispatch } from "react-redux";
 import { authActions } from '../../store/auth-slice';
 import { navAction } from '../../store/nav-slice';
+import { signOut } from 'firebase/auth';
+import { auth } from '../../firebse';
+
 
 function Navigation() {
   const dispatch=useDispatch()
@@ -17,6 +20,16 @@ function Navigation() {
       dispatch(authActions.isInPage())
 
     }
+
+    const handleLogoutLink =async()=>{
+     try{
+      await signOut(auth)
+      dispatch(authActions.logout())
+     }catch(err){
+      console.log(err.message)
+     }
+    }
+    
     const handleHamburger = () =>{
       dispatch(navAction.navToggle())
     }
@@ -44,8 +57,13 @@ function Navigation() {
                 </Link>
               </li>}
               {!isLoggedIn&&<li className='navbar_nav_logo nav-btn '>
-                <Link to='login' onClick={handleLoginLink} className='login-btn'>
+                <Link to='login' onClick={handleLoginLink} className='log-btn'>
                   Login
+                </Link>
+              </li>}
+              {isLoggedIn&&<li className='navbar_nav_logo nav-btn '>
+                <Link to='' onClick={handleLogoutLink} className='log-btn'>
+                  Logout
                 </Link>
               </li>}
           </ul>

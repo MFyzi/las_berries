@@ -64,12 +64,14 @@
                     margin-top: 32px;
                     background-color: #E58387;
                     border-radius: 5px;
-                    width: 80px;
                     border: none;
                     font-size: 1.3rem;
                     padding-inline: 10px;
                     padding-block: 5px;
                     cursor: pointer;
+                }
+                &-btns button:last-child{
+                    margin-left: 2rem;
                 }
 
             }

@@ -3,16 +3,39 @@ import './login.css'
 import { motion } from 'framer-motion'
 import { useDispatch } from "react-redux";
 import { authActions } from '../store/auth-slice'
-import { useNavigate } from 'react-router-dom';
-
+import { useNavigate } from 'react-router';
+import { useState } from 'react';
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
+import { auth } from '../firebse';
 function Login() {
     const navigate = useNavigate()
     const dispatch=useDispatch()
-    const handleSubmit = (e) =>{
-        e.preventDefault()
-        dispatch(authActions.login())
-        navigate('/products/cakes')
+    
+    const handleLogin= async ()=>{
+        try{
+            const user=await signInWithEmailAndPassword(auth,email,password)
+            console.log(user)
+            dispatch(authActions.login())
+            dispatch(authActions.isInPage())
+            navigate('/products/cakes')
+        }catch(err){
+            console.log(err.message);
+        }
     }
+    const handleRegister = async () =>{
+        try{
+            
+            const user=await createUserWithEmailAndPassword(auth,email,password)
+            console.log(user)
+            dispatch(authActions.isInPage())
+            dispatch(authActions.login())
+            navigate('/products/cakes')
+        }catch(err){
+            console.log(err.message);
+        }
+    }
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
   return (
     <div className='login__page'>
         <div className="login__page__backdrop">
@@ -22,13 +45,24 @@ function Login() {
                     <p className='tag'>Treat With Us</p>
                 </div>
                 <div  className="login__container__form">
-                    <motion.input type='text' placeholder='username'></motion.input>
-                    <input type='password' placeholder='pass'></input>
-                    <motion.button whileHover={{
-                        scale:1.2
-                    }} onClick={handleSubmit} >
-                        Login
-                    </motion.button>
+                    <motion.input type='text' placeholder='username' onChange={(e)=>{
+                        setEmail(e.target.value)
+                    }}></motion.input>
+                    <input type='password' placeholder='pass' onChange={(e)=>{
+                        setPassword(e.target.value)
+                    }}></input>
+                    <div className="login__container__form-btns">               
+                        <motion.button whileHover={{
+                            scale:1.2
+                        }} onClick={handleLogin} >
+                            Login
+                        </motion.button>
+                        <motion.button whileHover={{
+                            scale:1.2
+                        }} onClick={handleRegister} >
+                            Register
+                        </motion.button>
+                    </div>
                 </div>
             </div>
         </div>

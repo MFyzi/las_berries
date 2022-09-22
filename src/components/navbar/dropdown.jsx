@@ -35,8 +35,13 @@ function Dropdown() {
               </Link>
             </li>}
             {!isLoggedIn&&<li className="dropdown_nav_list_item">
-              <Link to='login' onClick={handleLoginLink} className='login-btn'>
+              <Link to='login' onClick={handleLoginLink} className='log-btn'>
                 login
+              </Link>
+            </li>}
+            {isLoggedIn&&<li className="dropdown_nav_list_item">
+              <Link to='' onClick={handleLoginLink} className='log-btn'>
+                logout
               </Link>
             </li>}
         </motion.ul>

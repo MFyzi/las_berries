@@ -2,8 +2,9 @@ import React from 'react'
 import {motion} from 'framer-motion'
 import './home_card.css'
 import { BiCartAlt } from "react-icons/bi";
-import { BsStarHalf,BsStarFill } from "react-icons/bs";
+// import { BsStarHalf,BsStarFill } from "react-icons/bs";
 function Cards(props) {
+    console.log(props.price)
   return (
     <div className='home__card'>
         <div className="image__container">    
@@ -18,12 +19,15 @@ function Cards(props) {
         </div>
             <button className="home__card_buy-btn">buy now</button>
         <div className="home__card__buy">
-            <div className="home__card__rating">
+            {/* <div className="home__card__rating">
                 <BsStarFill color='white' size='1rem'/>
                 <BsStarFill color='white' size='1rem'/>
                 <BsStarFill color='white' size='1rem'/>
                 <BsStarFill color='white' size='1rem'/>
                 <BsStarHalf color='white' size='1rem'/>
+            </div> */}
+            <div className="home__card__price">
+                <h5>Price : {props.price}/kg</h5>
             </div>
             <div className="home__card__cart">
                 <BiCartAlt color='white' size={30}/>

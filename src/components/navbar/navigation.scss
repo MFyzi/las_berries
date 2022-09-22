@@ -1,7 +1,7 @@
 @use '../../Sass/util/'as u;
 
 .navbar{
-    z-index: 2;
+    z-index: 5;
     .nav_list{
         margin-top: .5rem;
         display: flex;
@@ -25,7 +25,7 @@
         .nav-btn{
             margin-bottom: .5rem;
         }
-        .login-btn{
+        .log-btn{
             color: white;
             font-size: 1.3rem;
             text-decoration: none;

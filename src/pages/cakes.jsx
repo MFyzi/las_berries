@@ -12,7 +12,8 @@ function Cakes() {
       <Cards
       id={item.id}
       name={item.name}
-      url={item.url}/>
+      url={item.url}
+      price = {item.price}/>
       )}
 
     </div>
