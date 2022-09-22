@@ -45,7 +45,7 @@
                     background-color: #F2D6A7;
                 }
             }
-            &__form{
+            .container__form{
                 margin-top:  96px;
                 display: flex;
                 flex-direction: column;
@@ -73,8 +73,9 @@
                 &-btns button:last-child{
                     margin-left: 2rem;
                 }
-
+                
             }
+            
         }
     
     }
