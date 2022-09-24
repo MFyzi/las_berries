@@ -53,7 +53,7 @@
         &_line{
             width: 30px;
             height: 2px;
-            background-color: black;
+            background-color: u.$rose;
             margin: .4rem;
         }
         @include u.breakpoint(small){
