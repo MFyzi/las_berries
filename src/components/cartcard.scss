@@ -1,0 +1,97 @@
+@use '../Sass/util/'as u;
+.cartcard{
+    color: u.$darkBrown;
+    margin-bottom: 2rem;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    gap: 1rem;
+    width: 70%;
+    @include u.breakpoint(small){
+        grid-template-rows: 0fr 0fr;
+        grid-template-columns: .75fr 1fr;
+        // display: flex;
+    }
+    &-img{
+        // width: 200px;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
+    &__details{
+        &_header{
+            margin-bottom: .5rem;
+            width: 100%;
+            // display: flex;
+            // flex-wrap: wrap;
+            // justify-content: space-between;
+            // align-items: center;
+            .header-sub{
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            p{
+                color: u.$rose;
+                padding-inline: .5rem;
+            }
+            }
+        }
+        p{
+
+            margin-bottom: .5rem;
+        }
+        &_price{
+            margin-bottom: .5rem;
+            position: relative;
+            display: flex;
+            height: 50px;
+            svg{
+                position: absolute;
+                left: 0;
+                top: 0;
+            }
+            .price-tag{
+                width: 100%;
+                position: absolute;
+                top: 4px;
+                left: 1rem;
+                
+            }
+        }
+        &_selections{
+            .weight{
+                margin-bottom: .5rem;
+                display: grid;
+                grid-template-columns: 3fr 1fr 1fr 1fr;
+                &-type{
+                    color: #e1bda3;
+                }
+            }
+            .quantity{
+                margin-bottom: .5rem;
+                display: grid;
+                grid-template-columns: 3fr 1fr 1fr 1fr;
+                &-type{
+                    color: #e1bda3;
+                }
+            }
+        }
+        &_buy{
+            display: flex;
+            justify-content: space-between;
+            // margin-bottom: .5rem;
+            align-items: center;
+        }
+        
+    }
+    .btn{
+        background-color: u.$rose;
+        border-radius: 5px;
+        border: none;
+        color:u.$bg;
+        font-size: 1rem;
+        padding-inline: 10px;
+        padding-block: 5px;
+        cursor: pointer;
+    }
+}

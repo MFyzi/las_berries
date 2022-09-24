@@ -17,6 +17,8 @@ import './style.css'
 function App() {
   // const isLoggedIn = useSelector(state=>state.auth.isLoggedIn)
     const inPage = useSelector(state=>state.auth.inPage)
+    const newPrice = useSelector(state=>state.cart.itemList)
+        console.log(newPrice)
 
     return (
       <div className="App" >
