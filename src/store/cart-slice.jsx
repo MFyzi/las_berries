@@ -16,11 +16,11 @@ const cartSlice = createSlice({
                 totalPrice : newItem.price,
                 price : newItem.price,
                 totalQuantity : 1,
-                name : newItem.name
-            })
+                name : newItem.name,
+                category:newItem.category 
+          })
         }
     }
 })
-
 export const cartActions = cartSlice.actions
 export default cartSlice

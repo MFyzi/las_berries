@@ -25,24 +25,27 @@
             min-width: 280px;
             margin-inline: auto auto;
         }
-        &-links ul{
-            padding-top: 2rem;
-            .nav-links{
-                cursor: pointer;
-            }
-            display: flex;
-            justify-content: space-around;
-            width: 50%;
-            margin: auto auto auto auto;
-            a{
-                // cursor: pointer;
-                color:u.$rose ;
-                font-size: 1.5rem;
-                margin-block: 2rem;
-                text-decoration: none;
-                width: 90px;
-                text-align: center;
-    
+        &-links{
+            width: 100vw;
+            ul{
+                padding-top: 2rem;
+                .nav-links{
+                    cursor: pointer;
+                }
+                display: flex;
+                justify-content: space-between;
+                width: 50%;
+                margin: auto auto auto auto;
+                a{
+                    // cursor: pointer;
+                    color:u.$rose ;
+                    font-size: 1.5rem;
+                    margin-block: 2rem;
+                    text-decoration: none;
+                    width: 90px;
+                    text-align: center;
+        
+                }
             }
         }
 

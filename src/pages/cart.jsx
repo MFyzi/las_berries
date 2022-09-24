@@ -25,6 +25,8 @@ function Cart() {
             name = {item.name}
             url = {item.imgUrl}
             price = {item.price}
+            category = {item.category}
+            // category = {item.}
             />
         )}
       </div>

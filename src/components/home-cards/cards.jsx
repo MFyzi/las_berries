@@ -14,9 +14,10 @@ function Cards(props) {
     let name = props.name
     let url = props.url
     let price = props.price
+    let category = props.category
 
     const addToCart = ()=>{
-        dispatch(cartActions.addToCart({name,url,price}))
+        dispatch(cartActions.addToCart({name,url,price,category}))
     }
 
   return (

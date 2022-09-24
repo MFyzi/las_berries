@@ -1,5 +1,8 @@
 @use '../Sass/util/'as u;
 .cartcard{
+    padding: .2rem;
+    border: 2px dashed u.$darkBrown;
+    border-radius: 15px;
     color: u.$darkBrown;
     margin-bottom: 2rem;
     display: grid;
@@ -19,7 +22,7 @@
     }
     &__details{
         &_header{
-            margin-bottom: .5rem;
+            margin-bottom: .8rem;
             width: 100%;
             // display: flex;
             // flex-wrap: wrap;
@@ -68,11 +71,16 @@
                 }
             }
             .quantity{
+
                 margin-bottom: .5rem;
                 display: grid;
                 grid-template-columns: 3fr 1fr 1fr 1fr;
                 &-type{
                     color: #e1bda3;
+                }
+                &-inpt{
+                    color: u.$darkBrown;
+                    width: 50px;
                 }
             }
         }
