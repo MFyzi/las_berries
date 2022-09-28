@@ -3,13 +3,20 @@ import'./cartcard.css';
 import { SiCakephp } from 'react-icons/si'
 import { GiMasonJar } from 'react-icons/gi'
 import { RiCake3Line } from 'react-icons/ri'
+import { useDispatch } from 'react-redux';
+import { cartActions } from '../store/cart-slice';
 
 function Cartcard(props) {
     let name = props.name
     let url = props.url
     let price = props.price
     let category = props.category
+    let totalPrice = props.totalPrice
+    let weight =props.weight
     console.log(price)
+
+    const dispatch = useDispatch()
+
   return (
     <div className='cartcard'>
         <div className="cartcard-img" 
@@ -29,7 +36,7 @@ function Cartcard(props) {
                     {category === 'cupcakes' && <p>
                         <RiCake3Line size={'1.5rem'}/> 
                     </p>}
-                    <button className='btn'>remove</button>
+                    <button className='btn' onClick={() => dispatch(cartActions.removeItem({name}))}>remove</button>
                 </div>
             </div>
 
@@ -45,19 +52,25 @@ function Cartcard(props) {
             <div className='cartcard__details_selections'>
                 {category === 'cake' && <div className="weight">
                     <h3>wight</h3>
-                    <h3 className='weight-type'>1/2kg</h3>
-                    <h3 className='weight-type'>1kg</h3>
-                    <h3 className='weight-type'>2kg</h3>
+                    <button className='weight-type' onClick={() => dispatch(cartActions.updateCart({value:.5,name,price}))}>1/2kg</button>
+                    <button className='weight-type' onClick={() => dispatch(cartActions.updateCart({value:1,name,price}))}>1kg</button>
+                    <button className='weight-type' onClick={() => dispatch(cartActions.updateCart({value:2,name,price}))}>2kg</button>
                 </div>}
                 {category === 'cake' && <div className="quantity">
                     <h3>quantity</h3>
-                    <h3 className='quantity-type'>1</h3>
-                    <h3 className='quantity-type'>2</h3>
-                    <h3 className='quantity-type'>3</h3>
+                    <button className='quantity-type' onClick={() => dispatch(cartActions.updateCartByQuantity({value:1,name,category}))}>1</button>
+                    <button className='quantity-type'onClick={() => dispatch(cartActions.updateCartByQuantity({value:2,name,category}))}>2</button>
+                    <button className='quantity-type'onClick={() => dispatch(cartActions.updateCartByQuantity({value:3,name,category}))}>3</button>
                 </div>}
-                {category !='cake' && <div className="quantity">
+                {category !== 'cake' && <div className="quantity">
                     <h3>quantity</h3>
-                    <input className='quantity-inpt' type="text" />
+                    <input 
+                    className='quantity-inpt' 
+                    type="text"
+                    placeholder='1'
+                    onChange={(e) => dispatch(cartActions.updateCartByQuantity({value:e.target.value,name,category}))} 
+                      />
+                    
                 </div>}
             </div>
 
@@ -74,7 +87,7 @@ function Cartcard(props) {
             </div>
 
             <div className='cartcard__details_buy'>
-                <h3>Total price : /-</h3>
+                <h3>Total price : {totalPrice}/-</h3>
                 <button className='btn'>buy</button>
             </div>
 

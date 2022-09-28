@@ -36,6 +36,7 @@ function Navigation() {
     const isLoggedIn = useSelector(state=>state.auth.isLoggedIn)
     const isToggle = useSelector(state=>state.nav.isToggle)
     console.log(isToggle)
+    console.log(isLoggedIn)
   return (
     <nav className='navbar'>
       <div className="nav_list">

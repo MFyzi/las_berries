@@ -5,6 +5,8 @@ import'./dropdown.css';
 import { useSelector,useDispatch } from "react-redux";
 import { authActions } from '../../store/auth-slice';
 import { navAction } from '../../store/nav-slice';
+import { auth } from '../../firebse';
+import { signOut } from 'firebase/auth';
 function Dropdown() {
     const isLoggedIn = useSelector(state=>state.auth.isLoggedIn)
     const dispatch=useDispatch() 
@@ -15,6 +17,16 @@ function Dropdown() {
       dispatch(navAction.navToggle())
       dispatch(authActions.isInPage())
     }
+
+    const handleLogoutLink =async()=>{
+      try{
+       await signOut(auth)
+       dispatch(authActions.logout())
+      }catch(err){
+       console.log(err.message)
+      }
+     }
+
   return (
     <nav className='dropdown_nav'>
         <motion.ul onClick={handleNav} className="dropdown_nav_list">
@@ -40,7 +52,7 @@ function Dropdown() {
               </Link>
             </li>}
             {isLoggedIn&&<li className="dropdown_nav_list_item">
-              <Link to='' onClick={handleLoginLink} className='log-btn'>
+              <Link to='' onClick={handleLogoutLink} className='log-btn'>
                 logout
               </Link>
             </li>}
