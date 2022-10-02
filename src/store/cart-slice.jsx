@@ -1,23 +1,42 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { ref, set } from "firebase/database";
+import { rtdb } from "../firebse";
+
+
+function writeCartData (obj) {
+    const reference = ref(rtdb,'cart/' + obj.userId);
+    set (reference,{
+        userId : obj.userId,
+        itemList : obj.itemList,
+        totalItems : obj.totalItems,
+        totalPrice : obj.totalPrice
+    })
+}
 
 const cartSlice = createSlice({
     name: 'cart',
     initialState : {
+        userId : null,
         itemList : [],
         totalPrice : 0,
         totalItems: 0
     },
 
     reducers : {
+        addUser (state,action) {
+            const userId = action.payload
+            state.userId = userId
+            writeCartData(state)
+        },
         addToCart(state,action) {
             const newItem = action.payload;
             const isFound = state.itemList.some(element => {
                 if (element.name === newItem.name) {
-                  return element;
+                    return element;
                 }
-            
+                
                 return false;
-              });
+            });
             // console.log(state.itemList)
             
             console.log(isFound)
@@ -34,15 +53,16 @@ const cartSlice = createSlice({
                     currentChoosenPrice:newItem.price 
                     
                 })
-                 state.totalItems += 1
+                state.totalItems += 1
             }
+            writeCartData(state)
         },
         updateCart(state,action){
             const newItem =action.payload
             // console.log(weight)
             const existingItem = state.itemList.find(item=>item.name===newItem.name)
-                console.log(newItem.price)
-                existingItem.weight = newItem.value
+            console.log(newItem.price)
+            existingItem.weight = newItem.value
                 if (newItem.value === 1) {
                     existingItem.currentChoosenPrice=newItem.price
                     existingItem.totalPrice = newItem.price
@@ -60,9 +80,10 @@ const cartSlice = createSlice({
                 // const Total = (this.state.itemList.reduce((total,currentitem)))
                 // state.totalPrice = state.itemList.map(item=>state.totalPrice += parseInt(item.totalPrice) )
                 // console.log(item.totalPrice)
+                writeCartData(state)
             },
-        updateCartByQuantity(state,action){
-            const newItem = action.payload
+            updateCartByQuantity(state,action){
+                const newItem = action.payload
             const existingItem = state.itemList.find(item=>item.name===newItem.name)
             if(newItem.category === 'cake'){
 

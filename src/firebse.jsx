@@ -3,6 +3,7 @@
 import { initializeApp } from "firebase/app";
 import {getFirestore} from "@firebase/firestore"
 import {getAuth} from 'firebase/auth' 
+import {getDatabase} from 'firebase/database'
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -11,6 +12,7 @@ import {getAuth} from 'firebase/auth'
 const firebaseConfig = {
   apiKey: "AIzaSyBxNb4k8crMROFxlbo-MuqsZ-o3AVtI5Jc",
   authDomain: "lasberries-d13a9.firebaseapp.com",
+  databaseURL: "https://lasberries-d13a9-default-rtdb.firebaseio.com",
   projectId: "lasberries-d13a9",
   storageBucket: "lasberries-d13a9.appspot.com",
   messagingSenderId: "916931174792",
@@ -18,9 +20,10 @@ const firebaseConfig = {
   measurementId: "G-E5729QM08Y"
 };
 
-// Initialize Firebase
+// Initialize Firebasefd
 const app = initializeApp(firebaseConfig);
 
 
 export const db = getFirestore(app);
 export const auth = getAuth(app);
+export const rtdb = getDatabase()

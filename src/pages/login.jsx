@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router';
 import { useState } from 'react';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from 'firebase/auth';
 import { auth } from '../firebse';
+import { cartActions } from '../store/cart-slice';
 function Login() {
     const navigate = useNavigate()
     const dispatch=useDispatch()
@@ -18,6 +19,7 @@ function Login() {
             dispatch(authActions.login())
             dispatch(authActions.isInPage())
             navigate('/products/cakes')
+            dispatch(cartActions.addUser(user.user.uid))
         }catch(err){
             console.log(err.message);
         }
@@ -31,6 +33,7 @@ function Login() {
             console.log(user)
             dispatch(authActions.isInPage())
             dispatch(authActions.login())
+            dispatch(cartActions.addUser(user.user.uid))
             navigate('/products/cakes')
         }catch(err){
             console.log(err.message);
