@@ -18,8 +18,8 @@ function Login() {
             console.log(user)
             dispatch(authActions.login())
             dispatch(authActions.isInPage())
+            dispatch(cartActions.fetchUser(user.user.uid))
             navigate('/products/cakes')
-            dispatch(cartActions.addUser(user.user.uid))
         }catch(err){
             console.log(err.message);
         }

@@ -1,7 +1,18 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { ref, set } from "firebase/database";
+import { onValue, ref, set } from "firebase/database";
 import { rtdb } from "../firebse";
 
+
+// function readCart(userId){
+//     const dataRef = ref(rtdb,'cart/'+userId)
+//     const data = onValue(dataRef,(snapshot)=>{
+//         const data = snapshot.val();
+//         console.log(data);
+//         return data
+        
+//     })
+//     return data
+// }
 
 function writeCartData (obj) {
     const reference = ref(rtdb,'cart/' + obj.userId);
@@ -24,9 +35,26 @@ const cartSlice = createSlice({
 
     reducers : {
         addUser (state,action) {
+            // const userId = action.payload
             const userId = action.payload
             state.userId = userId
             writeCartData(state)
+            // state.itemList = cart.itemList
+            // state.userId = cart.userId
+            // state.totalItems = cart.totalItems
+            // state.totalPrice =cart.totalPrice
+        },
+        fetchUser (state,action){
+            const userId = action.payload
+            const dataRef = ref(rtdb,'cart/'+userId)
+             onValue(dataRef,(snapshot)=>{
+                const data = snapshot.val();
+                state.itemList = data.itemList
+                state.totalItems = data.totalItems
+                state.totalPrice = data.totalPrice
+                state.userId = data.userId
+                console.log(data.itemList);  
+            })
         },
         addToCart(state,action) {
             const newItem = action.payload;
@@ -86,7 +114,7 @@ const cartSlice = createSlice({
                 const newItem = action.payload
             const existingItem = state.itemList.find(item=>item.name===newItem.name)
             if(newItem.category === 'cake'){
-
+                
                 if (newItem.value === 1){
                     existingItem.totalPrice = existingItem.currentChoosenPrice
                 }
@@ -98,13 +126,15 @@ const cartSlice = createSlice({
             else{
                 existingItem.totalPrice = existingItem.currentChoosenPrice*newItem.value
             }
-
+            
+            writeCartData(state)
         },
         removeItem(state,action){
             const id = action.payload
             const newList = state.itemList.filter((item) => item.name !== id.name)
             console.log(id)
             state.itemList = newList
+            writeCartData(state)
         },
     }
 })
