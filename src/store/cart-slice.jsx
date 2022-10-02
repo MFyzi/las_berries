@@ -46,7 +46,7 @@ const cartSlice = createSlice({
         },
         fetchUser (state,action){
             const userId = action.payload
-            const dataRef = ref(rtdb,'cart/'+userId)
+            const dataRef = ref(rtdb,'cart/'+ userId)
              onValue(dataRef,(snapshot)=>{
                 const data = snapshot.val();
                 state.itemList = data.itemList
