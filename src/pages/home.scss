@@ -30,7 +30,7 @@
             h2{
                 position: absolute;
             }
-            .product-cake{
+            .product{
                 min-width: 100%;
                 height: 100%;
                 // background: red;
@@ -41,13 +41,17 @@
                     padding-inline:15%;
                     grid-template-columns: 70vw;
                     grid-template-rows: 1fr fit-content 1fr;
+                    @include u.breakpoint(medium){
+                        grid-template-rows: 1fr ;
+                        grid-template-columns: 1.5fr 1fr;
+                        // display: flex;
+                    }
                     h3{
                         font-size: 3rem;
                     }
                 }
                 img{
-                    width: 100%;
-                    // width: 400px;
+                    width: 100%;  // width: 400px;
                 }
                 .btn{
                     // margin-left: 2rem;
@@ -62,76 +66,8 @@
                     cursor: pointer;
                 }
             }
-            .product-cupcake{
-                min-width: 100%;
-                height: 100%;
-                // background: red;
-                &-card{
-                    height: 70vh;
-                    padding-block: 15%;
-                    display: grid;
-                    padding-inline:15%;
-                    grid-template-columns: 70vw;
-                    grid-template-rows: 1fr fit-content 1fr;
-                    h3{
-                        font-size: 3rem;
-                    }
-                }
-                img{
-                    width: 100%;
-                    // width: 400px;
-                }
-                .btn{
-                    // margin-left: 2rem;
-                    // margin-right: 2rem;
-                    background-color:u.$rose;
-                    border-radius: 5px;
-                    border: none;
-                    color:u.$bg;;
-                    font-size: 1rem;
-                    padding-inline: 10px;
-                    padding-block: 5px;
-                    cursor: pointer;
-                }
-        }
-            .product-jarcake{
-                min-width: 100%;
-                height: 100%;
-                // background: red;
-                &-card{
-                    height: 70vh;
-                    padding-block: 15%;
-                    display: grid;
-                    padding-inline:15%;
-                    grid-template-columns: 70vw;
-                    grid-template-rows: 1fr fit-content 1fr;
-                    h3{
-                        font-size: 3rem;
-                    }
-                }
-                img{
-                    width: 100%;
-                    // width: 400px;
-                }
-                .btn{
-                    // margin-left: 2rem;
-                    // margin-right: 2rem;
-                    background-color:u.$rose;
-                    border-radius: 5px;
-                    border: none;
-                    color:u.$bg;;
-                    font-size: 1rem;
-                    padding-inline: 10px;
-                    padding-block: 5px;
-                    cursor: pointer;
-                }
-            }
-            .product-cupcake{
-                min-width: 100%;
-                height: 100%;
-                // width: 100vw;
-            }
-            .product-jarcake{
+            
+            .product{
                 min-width: 100%;
                 height: 100%;
                 // width: 100vw;
@@ -140,14 +76,42 @@
         header{
             position: relative;
             // position: absolute;
-            background-color: violet;
+            // background-color: violet;
             height: calc(100vh - 4rem);
-            background-image: url('../images/lasberry.jpg');
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-            filter: grayscale(0.45);
+            color: white;
+            .filter{
+                
+                background-image: url('../images/lasberry.jpg');
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+                filter: grayscale(0.45);
+                z-index: 1;
+                height: 100%;
+                width: 100%;
+            }
             // background-color: ;
+            .header-content{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+                height: 90%;
+                border-radius: 50%;
+                background: radial-gradient(black 0%,rgba(255, 255, 255, 0) 70%);
+                position: absolute;
+                top: 0%;
+                left: 0%;
+                z-index: 2;
+                img{
+                    width: 155px;
+                    border-radius: 50%;
+                }
+                h1{
+                    color: u.$rose;
+                }
+            }
             
         }
         &_section-product{
