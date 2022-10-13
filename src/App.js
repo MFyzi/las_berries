@@ -11,11 +11,9 @@ import Products from './pages/products';
 import Cakes from './pages/cakes';
 import JarCakes from './pages/jarCakes';
 import CupCakes from './pages/cupCakes';
-// import Footer from './components/footer';
 import './style.css'
 
 function App() {
-  // const isLoggedIn = useSelector(state=>state.auth.isLoggedIn)
     const inPage = useSelector(state=>state.auth.inPage)
     const newPrice = useSelector(state=>state.cart.itemList)
         console.log(newPrice)

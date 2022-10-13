@@ -1,0 +1,66 @@
+@use '../Sass/util/'as u;
+    .product{
+        min-width: 100%;
+        height: 100%;
+        // background: red;
+        &-card{
+            height: 70vh;
+            padding-block: 17%;
+            padding-inline:15%;
+            @include u.breakpoint(medium){
+             padding-block: 5%;
+             display: grid;
+             grid-template-columns: 1fr .70fr;
+            //  justify-items: flex-end;   
+             height: 40vh;
+            }
+            .content_box{
+                display:grid ;         
+                grid-template-rows: auto;
+                
+                // grid-template-columns: 1.5fr 1fr ;
+                @include u.breakpoint(medium){
+                //  margin-inline: 0.5rem;
+                display: block;    
+            }
+                *{
+                    margin: 1rem;
+                    @include u.breakpoint(medium){
+                     margin-inline: 0.5rem;
+                    }
+                }
+                .btn{
+                    // margin-left: 2rem;
+                    // margin-right: 2rem;
+                    background-color:u.$rose;
+                    border-radius: 5px;
+                    border: none;
+                    color:u.$bg;;
+                    font-size: 1rem;
+                    padding-inline: 10px;
+                    padding-block: 5px;
+                    cursor: pointer;
+                    width: 100%;
+                }
+                h3{
+                    font-size: 3rem;
+                }
+            }
+        }
+        img{
+            height: 50vh;
+            width: 100%;  // width: 400px;
+            border-radius: 20px;
+            @include u.breakpoint(medium){
+                //  margin-inline: 0.5rem;
+                width: 100%;  
+                height: 80vh;
+            }
+        }
+    }
+    
+    .product{
+        min-width: 100%;
+        height: 100%;
+        // width: 100vw;
+    }

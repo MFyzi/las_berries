@@ -13,10 +13,8 @@
             height: 150px;
             // background: #000;
         }
-
         .section{
             scroll-snap-align: start;
-            // width: 100vw;
         }
         &_section-product{
             position: relative;
@@ -29,48 +27,6 @@
             }
             h2{
                 position: absolute;
-            }
-            .product{
-                min-width: 100%;
-                height: 100%;
-                // background: red;
-                &-card{
-                    height: 70vh;
-                    padding-block: 15%;
-                    display: grid;
-                    padding-inline:15%;
-                    grid-template-columns: 70vw;
-                    grid-template-rows: 1fr fit-content 1fr;
-                    @include u.breakpoint(medium){
-                        grid-template-rows: 1fr ;
-                        grid-template-columns: 1.5fr 1fr;
-                        // display: flex;
-                    }
-                    h3{
-                        font-size: 3rem;
-                    }
-                }
-                img{
-                    width: 100%;  // width: 400px;
-                }
-                .btn{
-                    // margin-left: 2rem;
-                    // margin-right: 2rem;
-                    background-color:u.$rose;
-                    border-radius: 5px;
-                    border: none;
-                    color:u.$bg;;
-                    font-size: 1rem;
-                    padding-inline: 10px;
-                    padding-block: 5px;
-                    cursor: pointer;
-                }
-            }
-            
-            .product{
-                min-width: 100%;
-                height: 100%;
-                // width: 100vw;
             }
         }
         header{
@@ -116,8 +72,6 @@
         }
         &_section-product{
             height: calc(100vh - 4rem);
-            // height: 100vh;
-            // background-color: purple;
         }
         &_section-about{
             height: calc(60vh - 4rem);
