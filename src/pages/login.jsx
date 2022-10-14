@@ -14,10 +14,12 @@ function Login() {
     
     const handleLogin= async ()=>{
         try{
+            
             const user=await signInWithEmailAndPassword(auth,email,password)
             console.log(user)
-            dispatch(authActions.login())
+            dispatch(authActions.login(user))
             dispatch(authActions.isInPage())
+            
             dispatch(cartActions.fetchUser(user.user.uid))
             navigate('/products/cakes')
         }catch(err){

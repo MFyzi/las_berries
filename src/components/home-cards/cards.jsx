@@ -9,7 +9,8 @@ import { cartActions } from '../../store/cart-slice';
 
 function Cards(props) {
 
-    const isLoggedIn = useSelector(state=>state.auth.isLoggedIn)
+    const currentUser = useSelector(state=>state.auth.currentUser)
+    
 
     const dispatch=useDispatch()
 
@@ -35,7 +36,8 @@ function Cards(props) {
                 }} >{name}</motion.h2>
             </div>
         </div>
-            <button className="home__card_buy-btn">buy now</button>
+        <p>Lorem ipsum dolor sit amet consectetur.</p>
+            {/* <button className="home__card_buy-btn">buy now</button> */}
         <div className="home__card__buy">
             {/* <div className="home__card__rating">
                 <BsStarFill color='white' size='1rem'/>
@@ -47,10 +49,10 @@ function Cards(props) {
             <div className="home__card__price">
                 <h5>{price} {category === 'cake' ? '/kg' : '/piece'}</h5>
             </div>
-            {isLoggedIn && <motion.div className="home__card__cart"
+            {currentUser && <motion.div className="home__card__cart"
             whileHover={{scale:1.2}}
             >
-                <BiCartAlt onClick={addToCart} color='white' size={30}/>
+                <BiCartAlt onClick={addToCart} size={30}/>
             </motion.div>}
         </div>
     </div>

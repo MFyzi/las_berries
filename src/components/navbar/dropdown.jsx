@@ -8,7 +8,7 @@ import { navAction } from '../../store/nav-slice';
 import { auth } from '../../firebse';
 import { signOut } from 'firebase/auth';
 function Dropdown() {
-    const isLoggedIn = useSelector(state=>state.auth.isLoggedIn)
+    const currentUser = useSelector(state=>state.auth.currentUser)
     const dispatch=useDispatch() 
     const handleNav = () =>{
       dispatch(navAction.navToggle())
@@ -17,11 +17,12 @@ function Dropdown() {
       dispatch(navAction.navToggle())
       dispatch(authActions.isInPage())
     }
-
+    
     const handleLogoutLink =async()=>{
       try{
-       await signOut(auth)
-       dispatch(authActions.logout())
+        await signOut(auth)
+        dispatch(authActions.logout())
+        dispatch(navAction.navToggle())
       }catch(err){
        console.log(err.message)
       }
@@ -29,7 +30,9 @@ function Dropdown() {
 
   return (
     <nav className='dropdown_nav'>
-        <motion.ul onClick={handleNav} className="dropdown_nav_list">
+        <motion.ul 
+        onClick={handleNav}
+         className="dropdown_nav_list">
             <motion.li 
             className="dropdown_nav_list_item">
             <Link to='/'>
@@ -41,17 +44,17 @@ function Dropdown() {
                 Cake
               </Link>
             </li>
-            {isLoggedIn && <li oclassName="dropdown_nav_list_item">
+            {currentUser !== null && <li oclassName="dropdown_nav_list_item">
               <Link  onClick={handleNav} to='cart'>
                 Cart
               </Link>
             </li>}
-            {!isLoggedIn&&<li className="dropdown_nav_list_item">
+            {currentUser === null &&<li className="dropdown_nav_list_item">
               <Link to='login' onClick={handleLoginLink} className='log-btn'>
                 login
               </Link>
             </li>}
-            {isLoggedIn&&<li className="dropdown_nav_list_item">
+            {currentUser !== null&&<li className="dropdown_nav_list_item">
               <Link to='' onClick={handleLogoutLink} className='log-btn'>
                 logout
               </Link>

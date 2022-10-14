@@ -17,7 +17,8 @@ import { auth } from '../../firebse';
 function Navigation() {
   const dispatch=useDispatch()
     const handleLoginLink =()=>{
-      dispatch(authActions.isInPage())
+      // dispatch(authActions.isInPage())
+      console.log('hai');
 
     }
 
@@ -33,10 +34,11 @@ function Navigation() {
     const handleHamburger = () =>{
       dispatch(navAction.navToggle())
     }
-    const isLoggedIn = useSelector(state=>state.auth.isLoggedIn)
+    const currentUser = useSelector(state=>state.auth.currentUser)
     const isToggle = useSelector(state=>state.nav.isToggle)
+    const inPage = useSelector(state=>state.auth.inPage)
     console.log(isToggle)
-    console.log(isLoggedIn)
+    console.log(currentUser)
   return (
     <nav className='navbar'>
       <div className="nav_list">
@@ -52,17 +54,17 @@ function Navigation() {
                 <SiCakephp/>
                 </Link>
               </li>
-              {isLoggedIn&&<li className='navbar_nav_logo'>
+              {currentUser !== null &&<li className='navbar_nav_logo'>
                 <Link to='cart'>
                   <BiCartAlt />
                 </Link>
               </li>}
-              {!isLoggedIn&&<li className='navbar_nav_logo nav-btn '>
+              {currentUser === null && <li className='navbar_nav_logo nav-btn '>
                 <Link to='login' onClick={handleLoginLink} className='log-btn'>
                   Login
                 </Link>
               </li>}
-              {isLoggedIn&&<li className='navbar_nav_logo nav-btn '>
+              {currentUser !== null &&<li className='navbar_nav_logo nav-btn '>
                 <Link to='' onClick={handleLogoutLink} className='log-btn'>
                   Logout
                 </Link>

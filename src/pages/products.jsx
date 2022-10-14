@@ -9,7 +9,7 @@ function Products() {
   return (
     <div className="products__container">
       <div className="products__container__nav">
-        <input className="products__container__nav-search" type='text' placeholder="hello"/>
+        {/* <input className="products__container__nav-search" type='text' placeholder="hello"/> */}
        <div className="products__container__nav-links">
         <ul>
           <li className="nav-links">
