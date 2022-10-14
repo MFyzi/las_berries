@@ -10,7 +10,7 @@ import {getDatabase} from 'firebase/database'
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: `${process.env.REACT_APP_FIREBASE_KEY}`,
+  apiKey: "AIzaSyBxNb4k8crMROFxlbo-MuqsZ-o3AVtI5Jc",
   authDomain: "lasberries-d13a9.firebaseapp.com",
   databaseURL: "https://lasberries-d13a9-default-rtdb.firebaseio.com",
   projectId: "lasberries-d13a9",
